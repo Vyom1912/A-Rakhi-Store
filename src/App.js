@@ -1,43 +1,70 @@
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Shop from "./Pages/Shop";
 import ShopCategory from "./Pages/ShopCategory";
 import Cart from "./Pages/Cart";
 import Product from "./Pages/Product";
-import LoginSignup from "./Pages/LoginSignup";
 import Footer from "./Components/Footer/Footer";
-import men_banner from "./Components/Assets/banner_mens.png";
-import women_banner from "./Components/Assets/banner_women.png";
-import kid_banner from "./Components/Assets/banner_kids.png";
+import swasdesign_banner from "./Components/Assets/banner_swasdesign.png";
+import ram_banner from "./Components/Assets/banner_ram.png";
+import big_line_banner from "./Components/Assets/banner_5line.png";
+import small_line_banner from "./Components/Assets/banner_3line.png";
+import Loader from "./Components/Loader/Loader";
+import { useEffect, useState } from "react"; // 👈 Add this
+import ReactGA from "react-ga4";
 
+ReactGA.initialize("G-JKPMJ5WFXB");
 function App() {
+  const [loading, setLoading] = useState(true); // 👈 Loading state
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  }, []);
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000); // 2 seconds delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />; // 👈 Show loader until loading is false
+
   return (
     <div>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<Shop />} />
-          <Route
-            path='/mens'
-            element={<ShopCategory banner={men_banner} category='men' />}
-          />
-          <Route
-            path='/womens'
-            element={<ShopCategory banner={women_banner} category='women' />}
-          />
-          <Route
-            path='/kids'
-            element={<ShopCategory banner={kid_banner} category='kid' />}
-          />
-          <Route path='/product' element={<Product />}>
-            <Route path=':productId' element={<Product />} />
-          </Route>
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/login' element={<LoginSignup />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Shop />} />
+        <Route
+          path='/swastik-design'
+          element={
+            <ShopCategory
+              banner={swasdesign_banner}
+              category='swastik-design'
+            />
+          }
+        />
+        <Route
+          path='/ram'
+          element={<ShopCategory banner={ram_banner} category='ram' />}
+        />
+        <Route
+          path='/design-big'
+          element={
+            <ShopCategory banner={big_line_banner} category='design-big' />
+          }
+        />
+        <Route
+          path='/design-small'
+          element={
+            <ShopCategory banner={small_line_banner} category='design-small' />
+          }
+        />
+        <Route path='/product/:productId' element={<Product />} />
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

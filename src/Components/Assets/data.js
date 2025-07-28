@@ -1,36 +1,36 @@
-import p1_img from "./product_1.png";
-import p2_img from "./product_2.png";
-import p3_img from "./product_3.png";
-import p4_img from "./product_4.png";
+import p1_img from "./product_1.jpg";
+import p2_img from "./product_42.jpg";
+import p3_img from "./product_5.jpg";
+import p4_img from "./product_26.jpg";
 
 let data_product = [
   {
     id: 1,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Traditional five-thread Rakhi with Swastik symbol and Jeco Moti beadwork.",
     image: p1_img,
-    new_price: 50.0,
-    old_price: 80.5,
+    new_price: 40.0,
+    old_price: 50.0,
   },
   {
     id: 2,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Handmade Rakhi with Swastik symbol made from Jeco Moti.",
     image: p2_img,
-    new_price: 85.0,
-    old_price: 120.5,
+    new_price: 40.0,
+    old_price: 50.0,
   },
   {
     id: 3,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Swastik Rakhi with fine Jeco Moti work and five-thread structure.",
     image: p3_img,
-    new_price: 60.0,
-    old_price: 100.5,
+    new_price: 40.0,
+    old_price: 50.0,
   },
   {
     id: 4,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Elegant and charming Rakhi with colorful Jeco designs.",
     image: p4_img,
-    new_price: 100.0,
-    old_price: 150.0,
+    new_price: 40.0,
+    old_price: 50.0,
   },
 ];
 

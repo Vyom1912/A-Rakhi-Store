@@ -7,6 +7,11 @@ const CartItems = () => {
     useContext(ShopContext);
   return (
     <div className='cartitems'>
+      <h1 className='cartitems-title'>
+        Your Cart
+        <br />
+        <hr />
+      </h1>
       <div className='cartitems-format-main'>
         <p>Products</p>
         <p>Title</p>
@@ -15,7 +20,9 @@ const CartItems = () => {
         <p>Total</p>
         <p>Remove</p>
       </div>
-      <hr />
+      <span>
+        <hr />
+      </span>
 
       {all_product.map((e) => {
         if (cartItems[e.id] > 0) {
@@ -23,12 +30,23 @@ const CartItems = () => {
             <div>
               <div className='cartitems-format cartitems-format-main'>
                 <img src={e.image} className='carticon-product-icon' alt='' />
-                <p>{e.name}</p>
-                <p>${e.new_price}</p>
+                <p className='cartitem-fname'>
+                  {e.name}
+                  <br />
+                  <span>
+                    <hr />
+                  </span>
+                </p>
+                <p className='cartitem-fprice'>
+                  <span>Price: </span>Rs. {e.new_price}
+                </p>
                 <button className='cartitems-qyantity'>
+                  <span>Qnt: </span>
                   {cartItems[e.id]}
                 </button>
-                <p>${e.new_price * cartItems[e.id]}</p>
+                <p className='cartitem-ftotal'>
+                  <span>Total: </span>Rs. {e.new_price * cartItems[e.id]}
+                </p>
                 <img
                   src={remove_icon}
                   alt=''
@@ -50,7 +68,7 @@ const CartItems = () => {
           <div>
             <div className='cartitems-total-item'>
               <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>Rs. {getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className='cartitems-total-item'>
@@ -60,10 +78,23 @@ const CartItems = () => {
             <hr />
             <div className='cartitems-total-item'>
               <h3>Total</h3>
-              <h3>${getTotalCartAmount()}</h3>
+              <h3>Rs. {getTotalCartAmount()}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button
+            onClick={() => {
+              if (getTotalCartAmount() > 0) {
+                alert(
+                  "We're sorry! Delivery for this product is currently unavailable in your area. For more details or help, feel free to contact us at the number provided. Thank you for your understanding."
+                );
+              } else {
+                alert(
+                  "Please select an item before proceeding. Let us know if you need any help choosing!"
+                );
+              }
+            }}>
+            PROCEED TO CHECKOUT
+          </button>
         </div>
         <div className='cartitems-promrcode'>
           <p>If you have a promo code, Enter it here</p>
