@@ -1,87 +1,85 @@
+/* sticks just below the site header (its height comes from the Navbar) */
 .type-slider {
-  background: linear-gradient(180deg, var(--bg-soft), #fff);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
+
+/* one row of pills that scrolls sideways on every screen size */
 .type-slider-row {
   position: relative;
   width: var(--container);
   margin: auto;
   display: flex;
-  gap: 10px;
-  padding: 12px 0;
+  gap: 8px;
+  padding: 10px 0;
   overflow-x: auto;
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  overscroll-behavior-x: contain;
 }
 .type-slider-row::-webkit-scrollbar {
   display: none;
 }
+
+/* auto margins centre the pills when they all fit, and let them scroll when they don't */
+.type-slide:first-child {
+  margin-left: auto;
+}
+.type-slide:last-child {
+  margin-right: auto;
+}
+
 .type-slide {
-  flex: 0 0 116px;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
   background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  scroll-snap-align: center;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.type-slide img,
-.type-slide-name {
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-}
-.type-slide span {
-  padding: 6px 8px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
+  scroll-snap-align: center;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
 .type-slide.active {
   border-color: var(--accent);
-}
-.type-slide.active span {
   background: var(--accent);
   color: white;
 }
 .type-slide-custom {
-  background: linear-gradient(120deg, var(--brand), #b3263f);
-  color: white;
-}
-.type-slide-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  border-color: var(--brand);
+  color: var(--brand);
 }
 
 @media (hover: hover) {
-  .type-slide:hover {
-    transform: translateY(-2px);
+  .type-slide:not(.active):hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .type-slide-custom:hover {
+    background: var(--brand);
+    color: white;
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 900px) {
   .type-slider-row {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 14px;
-    padding: 16px 0;
-    overflow: visible;
+    gap: 12px;
+    padding: 12px 0;
   }
-  .type-slide img,
-  .type-slide-name {
-    aspect-ratio: 3 / 1;
-  }
-  .type-slide span {
-    padding: 8px;
-    font-size: 14px;
+  .type-slide {
+    padding: 9px 22px;
+    font-size: 15px;
   }
 }

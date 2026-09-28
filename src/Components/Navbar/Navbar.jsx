@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
@@ -22,6 +22,7 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const cartCount = getTotalCartItems();
   const closeMenu = () => setMenuOpen(false);
+  const headerRef = useRef(null);
 
   // close the menu whenever the page changes
   useEffect(() => setMenuOpen(false), [pathname]);
@@ -38,6 +39,19 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
+  // share the header height as --header-height, so sticky bars (like the type slider)
+  // sit right below it. It changes when the announcement line wraps on small screens.
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header || typeof ResizeObserver === "undefined") return;
+    const update = () =>
+      document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
   // add a shadow under the header once the page is scrolled
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -48,7 +62,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
+      <header ref={headerRef} className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <p className='nav-announcement'>
           <span>{FULFILMENT_NOTE}</span>
           <span>Custom name rakhis</span>

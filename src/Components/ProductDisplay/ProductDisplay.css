@@ -190,7 +190,7 @@
   .productdisplay-left {
     flex: 1 1 55%;
     position: sticky;
-    top: 130px;
+    top: calc(var(--header-height) + 76px); /* below the header and the type slider */
   }
   .productdisplay-right {
     flex: 1 1 45%;

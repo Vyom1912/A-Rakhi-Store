@@ -3,8 +3,8 @@ import "./TypeSlider.css";
 import { Link } from "react-router-dom";
 import { categories } from "../../storeConfig";
 
-// row of rakhi types shown at the top of category and product pages.
-// On phones it slides sideways, and the current type is scrolled into view.
+// sticky row of rakhi types at the top of category and product pages.
+// It scrolls sideways, and the current type is scrolled into view.
 const TypeSlider = ({ active }) => {
   const rowRef = useRef(null);
 
@@ -25,13 +25,11 @@ const TypeSlider = ({ active }) => {
             to={`/${category.slug}`}
             className={`type-slide ${active === category.slug ? "active" : ""}`}
             aria-current={active === category.slug ? "page" : undefined}>
-            <img src={category.sample} alt='' />
-            <span>{category.label}</span>
+            {category.label}
           </Link>
         ))}
         <Link to='/custom-rakhi' className='type-slide type-slide-custom'>
-          <div className='type-slide-name'>NAME</div>
-          <span>Custom Name</span>
+          Custom Name
         </Link>
       </div>
     </nav>
