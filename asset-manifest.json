@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/A-Rakhi-Store/static/css/main.0dfd28f8.css",
-    "main.js": "/A-Rakhi-Store/static/js/main.10b066aa.js",
+    "main.css": "/A-Rakhi-Store/static/css/main.803da4b3.css",
+    "main.js": "/A-Rakhi-Store/static/js/main.5a6113e8.js",
     "static/media/hero_image.webp": "/A-Rakhi-Store/static/media/hero_image.96cc6d31485850d1c066.webp",
     "static/media/exclusive_image.webp": "/A-Rakhi-Store/static/media/exclusive_image.1c5eff74c602c410d2e1.webp",
     "static/media/banner_ram.webp": "/A-Rakhi-Store/static/media/banner_ram.4591fd43f3c50108f195.webp",
@@ -78,11 +78,11 @@
     "static/media/product_68.jpg": "/A-Rakhi-Store/static/media/product_68.0b0adf1574a1fb2922d3.jpg",
     "static/media/product_65.jpg": "/A-Rakhi-Store/static/media/product_65.c920cb3b2990bfcd2ce7.jpg",
     "index.html": "/A-Rakhi-Store/index.html",
-    "main.0dfd28f8.css.map": "/A-Rakhi-Store/static/css/main.0dfd28f8.css.map",
-    "main.10b066aa.js.map": "/A-Rakhi-Store/static/js/main.10b066aa.js.map"
+    "main.803da4b3.css.map": "/A-Rakhi-Store/static/css/main.803da4b3.css.map",
+    "main.5a6113e8.js.map": "/A-Rakhi-Store/static/js/main.5a6113e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.0dfd28f8.css",
-    "static/js/main.10b066aa.js"
+    "static/css/main.803da4b3.css",
+    "static/js/main.5a6113e8.js"
   ]
 }
