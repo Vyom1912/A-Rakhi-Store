@@ -1,0 +1,14 @@
+.pickup-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pickup-making-note {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff6e0;
+  border: 1px solid #f3dca0;
+  color: #6b4d00;
+  font-size: 13px;
+  line-height: 1.5;
+}

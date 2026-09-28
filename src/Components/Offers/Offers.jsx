@@ -1,19 +1,29 @@
 import React from "react";
 import "./Offers.css";
-import exclusive_image from "../Assets/exclusive_image.png";
+import exclusive_image from "../Assets/exclusive_image.webp";
+
 const Offers = () => {
+  const scrollToBestsellers = () =>
+    document.getElementById("popular")?.scrollIntoView({ behavior: "smooth" });
+
   return (
-    <div className='offers'>
+    <section className='offers'>
       <div className='offers-left'>
-        <h1>Exclusive</h1>
-        <h1>Offers For You</h1>
-        <p>ONLY ON BEST SELLERS PRODUCTS</p>
-        <button>Check Now</button>
+        <p className='offers-tag'>Special offer</p>
+        <h1>
+          Exclusive
+          <br />
+          Offers For You
+        </h1>
+        <p>ONLY ON BESTSELLER PRODUCTS</p>
+        <button className='btn' onClick={scrollToBestsellers}>
+          Check Now
+        </button>
       </div>
       <div className='offers-right'>
-        <img src={exclusive_image} alt='' />
+        <img src={exclusive_image} alt='' loading='lazy' />
       </div>
-    </div>
+    </section>
   );
 };
 

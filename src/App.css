@@ -1,0 +1,39 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app-main {
+  flex: 1;
+}
+
+.product-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 80px 20px;
+  text-align: center;
+}
+.product-not-found p {
+  color: var(--muted);
+}
+
+/* room for the sticky buy bar on phones */
+.app.has-buybar {
+  padding-bottom: 72px;
+}
+@media (min-width: 900px) {
+  .app.has-buybar {
+    padding-bottom: 0;
+  }
+}
+
+.page-top {
+  padding-top: 28px;
+}
+@media (min-width: 900px) {
+  .page-top {
+    padding-top: 50px;
+  }
+}

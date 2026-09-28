@@ -1,123 +1,131 @@
 .hero {
-  height: 100vh;
-  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
+  background: linear-gradient(180deg, #fde1ff 0%, #fff3f6 60%, #ffffff 100%);
+  margin-bottom: 40px;
 }
-.hero-left {
-  flex: 1;
+.hero-inner {
+  width: var(--container);
+  margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  padding-left: 180px;
-  line-height: 1.1;
-}
-.hero-left p {
-  color: #171717;
-  font-size: 45px;
-  font-weight: 600;
-}
-.hero-left p span {
-  font-size: 20px;
-  font-weight: 500;
-}
-.hero-hand-icon {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.hero-latest-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  width: 310px;
-  height: 70px;
-  border-radius: 75px;
-  margin-top: 30px;
-  background: #ff4141;
-  color: white;
-  font-size: 22px;
-  font-weight: 500;
-}
-.hero-latest-btn img {
-  transform: translate(90deg);
-}
-.hero-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 8px;
+  padding: 16px 0 32px;
 }
 .hero-right img {
   width: 100%;
+  max-width: 440px;
+  margin: auto;
+  animation: hero-fade 0.7s 0.1s ease both;
 }
-@media (max-width: 1280px) {
-  .hero-left {
-    padding-left: 100px;
-  }
-  .hero-latest-btn {
-    gap: 10px;
-    width: 250px;
-    height: 60px;
-    margin-top: 20px;
-    font-size: 18px;
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  animation: hero-fade 0.7s ease both;
+}
+.hero-tag {
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: white;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+}
+.hero-left h1 {
+  color: var(--text);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+.hero-left h1 span {
+  color: var(--brand);
+}
+.hero-sub {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+}
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #4a4a4a;
+  font-size: 13px;
+}
+.hero-points li::before {
+  content: "✓ ";
+  color: var(--accent);
+  font-weight: 700;
+}
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
 }
-@media (max-width: 1024px) {
-  .hero-left {
-    padding-left: 80px;
-  }
 
-  .hero-left p {
+@media (min-width: 600px) {
+  .hero-left h1 {
     font-size: 40px;
   }
-  .hero-latest-btn {
-    width: 220px;
-    height: 50px;
-    font-size: 16px;
-  }
-}
-@media (max-width: 800px) {
-  .hero {
-    margin-top: 40px;
-  }
-  .hero-left {
-    padding-left: 30px;
-  }
-  .hero-left p {
-    font-size: 30px;
-  }
-  .hero-left p span {
-    font-size: 15px;
-  }
-  .hero-latest-btn {
-    width: 175px;
-    height: 40px;
-    font-size: 13px;
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
   }
 }
 
-@media (max-width: 500px) {
+@media (min-width: 900px) {
   .hero {
-    flex-direction: column-reverse;
+    margin-bottom: 70px;
+  }
+  .hero-inner {
+    min-height: min(calc(100vh - 110px), 700px);
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+  }
+  .hero-left,
+  .hero-right {
+    flex: 1 1 50%;
   }
   .hero-right img {
-    /* display: none; */
-    width: 90%;
+    max-width: none;
   }
-  .hero-left p {
-    font-size: 35px;
+  .hero-left {
+    align-items: flex-start;
+    gap: 18px;
+    text-align: left;
   }
-  .hero-left p span {
-    font-size: 20px;
+  .hero-left h1 {
+    font-size: clamp(40px, 4.4vw, 58px);
   }
-  .hero-latest-btn {
-    width: 200px;
-    height: 45px;
+  .hero-left h1 span {
+    display: block;
+  }
+  .hero-sub {
+    font-size: 17px;
+  }
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+  .hero-points {
+    justify-content: flex-start;
     font-size: 14px;
   }
 }

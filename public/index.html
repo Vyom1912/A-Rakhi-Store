@@ -3,17 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f9c846" />
+    <meta name="theme-color" content="#7b1e2e" />
     <meta
       name="description"
-      content="Buy beautiful homemade rakhis made with jeco moti. Celebrate Raksha Bandhan with love. Order online or via WhatsApp." />
+      content="Handmade Jeco Moti rakhis and custom name rakhis from a home business in Himatnagar. Pickup from Motipura, Himatnagar. Order on WhatsApp." />
 
     <!-- Favicon and icons -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="48x48"
-      href="%PUBLIC_URL%/favicon_48x48.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link
       rel="icon"
       type="image/png"
@@ -34,19 +30,42 @@
     <meta property="og:title" content="Rakhi Store | Homemade Rakhis Online" />
     <meta
       property="og:description"
-      content="Buy beautiful homemade rakhis made with jeco moti. Order now online or on WhatsApp!" />
+      content="Handmade Jeco Moti rakhis and custom name rakhis. Pickup in Himatnagar. Order on WhatsApp!" />
     <meta
       property="og:image"
-      content="https://rakhistore.themaroons.in/logo512.png" />
-    <meta property="og:url" content="https://rakhistore.themaroons.in" />
-    <meta name="twitter:card" content="summary_large_image" />
+      content="https://vyom1912.github.io/A-Rakhi-Store/logo512.png" />
+    <meta property="og:url" content="https://vyom1912.github.io/A-Rakhi-Store/" />
+    <meta name="twitter:card" content="summary" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
+
+
+    <!--
+      GitHub Pages only serves index.html at the root, so 404.html sends deep links
+      (e.g. /A-Rakhi-Store/cart) here as ?/cart, and this restores the real URL.
+      It also upgrades old #/ links from when the site used HashRouter.
+    -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        } else if (l.hash.indexOf("#/") === 0) {
+          window.history.replaceState(null, null, l.pathname.replace(/\/$/, "") + l.hash.slice(1));
+        }
+      })(window.location);
+    </script>
 
     <title>The Maroons: A Rakhi Store</title>
   </head>

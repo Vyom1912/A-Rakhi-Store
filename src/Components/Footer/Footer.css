@@ -1,50 +1,104 @@
 .footer {
+  background: #2a1016;
+  color: #d9c9cc;
+}
+.footer-content {
+  width: var(--container);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 20px;
+  padding: 44px 0 30px;
+}
+.footer-brand {
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 14px;
+  font-size: 14px;
+  line-height: 1.7;
 }
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+}
+.footer-logo img {
+  width: 44px;
 }
 .footer-logo p {
-  color: #383838;
-  font-size: 40px;
+  color: white;
+  font-size: 24px;
   font-weight: 700;
 }
-.footer-copyright {
+.footer-col h3 {
+  margin-bottom: 14px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+.footer-col ul {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+.footer-col a:hover {
+  color: white;
+}
+.footer-whatsapp {
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-  width: 100%;
-  margin-bottom: 30px;
-  color: #1a1a1a;
-  font-size: 16px;
+  gap: 8px;
 }
-.footer-copyright hr {
-  width: 80%;
-  border: none;
-  border-radius: 10px;
-  height: 3px;
-  background: #c7c7c7;
+.footer-whatsapp img {
+  width: 18px;
+  filter: brightness(0) invert(1);
 }
-@media (max-width: 800px) {
-  .footer-logo {
-    align-items: end;
-    gap: 10px;
+/* the pickup column spans the full row on phones */
+.footer-col:last-child {
+  grid-column: 1 / -1;
+}
+.footer-address {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.6;
+}
+.footer-address a {
+  width: fit-content;
+  color: #ff9a9a;
+  font-weight: 500;
+}
+.footer-copyright {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (min-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding: 60px 0 40px;
+  }
+  .footer-brand {
+    grid-column: auto;
+    max-width: 380px;
+  }
+  .footer-col:last-child {
+    grid-column: auto;
   }
   .footer-logo img {
-    width: 40px;
+    width: 52px;
   }
   .footer-logo p {
-    font-size: 25px;
-  }
-  .footer-copyright {
-    font-size: 13px;
+    font-size: 28px;
   }
 }

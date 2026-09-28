@@ -1,82 +1,131 @@
 .item {
-  width: 450px;
-  margin: auto;
-  align-self: start;
-  margin-bottom: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 12px;
+  background: white;
+  box-shadow: var(--shadow);
   overflow: hidden;
-  transition: 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.item img {
+.item-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #eef0f1;
+}
+/* photos are wide strips with the rakhi in the middle; 3:2 crops the plain
+   thread ends so the beadwork fills the card */
+.item-image img {
   width: 100%;
-  /* height: 300px; */
-  margin: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transform: scale(1.15);
+  transition: transform 0.4s ease;
 }
-.item p {
-  height: 45px;
-  margin: 6px 0;
+.item-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 8px;
+  border-radius: 50px;
+  background: var(--accent);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+}
+.item-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+}
+.item-name {
+  color: #333;
+  font-size: 13px;
+  line-height: 1.4;
+  /* at most 2 lines so every card is the same height */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
 }
 .item-prices {
   display: flex;
-  gap: 20px;
+  align-items: baseline;
+  gap: 8px;
 }
 .item-price-new {
-  color: #374151;
+  color: var(--text);
   font-size: 16px;
   font-weight: 600;
 }
 .item-price-old {
   color: #8c8c8c;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 12px;
   text-decoration: line-through;
 }
-.item:hover {
-  transform: scale(1.05);
-  transition: 0.6s;
+.item-add {
+  margin-top: auto;
+  min-height: 38px;
+  padding: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 50px;
+  background: white;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
 }
-@media (max-width: 1280px) {
-  .item {
-    width: 400px;
-    font-size: 14px;
+.item-add:active {
+  background: var(--accent);
+  color: white;
+}
+
+@media (hover: hover) {
+  .item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
   }
-  .item p {
-    height: 33px;
+  .item:hover .item-image img {
+    transform: scale(1.25);
   }
-  .item-price-old {
-    font-size: 14px;
+  .item-name:hover {
+    color: var(--accent);
+  }
+  .item-add:hover {
+    background: var(--accent);
+    color: white;
   }
 }
-@media (max-width: 1024px) {
+
+@media (min-width: 600px) {
   .item {
-    width: 330px;
-    font-size: 13px;
+    border-radius: var(--radius);
   }
-  .item p {
-    height: 35px;
-  }
-  .item-price-old {
-    font-size: 13px;
-  }
-}
-@media (max-width: 800px) {
-  .item {
-    width: 200px;
+  .item-badge {
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
     font-size: 12px;
   }
-  .item p {
-    height: 49px;
+  .item-body {
+    gap: 10px;
+    padding: 14px 16px 16px;
+  }
+  .item-name {
+    font-size: 15px;
+  }
+  .item-price-new {
+    font-size: 18px;
   }
   .item-price-old {
-    font-size: 12px;
+    font-size: 14px;
   }
-}
-@media (max-width: 500px) {
-  .item {
-    width: 300px;
-  }
-  .item p {
-    height: 33px;
+  .item-add {
+    font-size: 14px;
   }
 }

@@ -1,0 +1,67 @@
+.custom-promo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 32px 20px;
+  border-radius: 20px;
+  background: radial-gradient(circle at 20% 0%, #b3263f 0%, var(--brand) 55%, var(--brand-dark) 100%);
+  color: white;
+  text-align: center;
+}
+.custom-promo-tag {
+  padding: 5px 14px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.custom-promo h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.custom-promo p:not(.custom-promo-tag) {
+  max-width: 560px;
+  color: #f5dfe3;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.custom-promo-names {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+/* each example name looks like a beaded panel on a red thread */
+.custom-promo-names span {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: #d62f2f;
+  border: 2px dotted rgba(255, 255, 255, 0.75);
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+.custom-promo .btn {
+  background: white;
+  color: var(--brand);
+}
+.custom-promo .btn:hover {
+  background: #ffe9ec;
+}
+
+@media (min-width: 900px) {
+  .custom-promo {
+    padding: 56px 40px;
+    gap: 18px;
+  }
+  .custom-promo h2 {
+    font-size: 38px;
+  }
+  .custom-promo p:not(.custom-promo-tag) {
+    font-size: 16px;
+  }
+}

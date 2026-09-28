@@ -1,0 +1,69 @@
+/* the name on a beaded panel, with the maroon thread running across behind it */
+.bead-preview {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 10px 0;
+  /* thread strands: darker lines over the thread colour */
+  background:
+    repeating-linear-gradient(
+        180deg,
+        transparent 0 3px,
+        rgba(0, 0, 0, 0.25) 3px 6px
+      )
+      center / 100% 26px no-repeat,
+    linear-gradient(var(--thread), var(--thread)) center / 100% 26px no-repeat;
+  overflow-x: auto;
+}
+.bead-preview-panel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: var(--thread);
+  border: 3px dotted rgba(255, 255, 255, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.bead-preview-panel span {
+  min-width: 13px;
+  padding: 2px 0px;
+  color: var(--moti);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+.bead-preview-panel em {
+  color: #f3d9dd;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.bead-preview-sm {
+  min-height: 0;
+  padding: 4px 0;
+  background-size:
+    100% 16px,
+    100% 16px;
+}
+.bead-preview-sm .bead-preview-panel {
+  margin: 0;
+  padding: 4px 8px;
+  border-width: 2px;
+}
+.bead-preview-sm .bead-preview-panel span {
+  min-width: 16px;
+  padding: 0 2px;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .bead-preview-panel span {
+    font-size: 24px;
+  }
+  .bead-preview-sm .bead-preview-panel span {
+    font-size: 15px;
+  }
+}
